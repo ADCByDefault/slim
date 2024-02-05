@@ -4,6 +4,10 @@ Avviare il container Docker con php, apache e composer
 
 `docker run --rm --name phpcomposer -v ./:/var/www/html -p 8080:80 benvenuti/php-composer:1.0`
 
+Aprire il browser al seguente indirizzo:
+
+http://localhost:8080
+
 
 ## Primo avvio
 
