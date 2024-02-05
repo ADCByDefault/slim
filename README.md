@@ -1,11 +1,10 @@
-# Dockerizzare un LAMP
+# Utilizzare Docker per avviare un LAMP
 
 Avviare il container Docker con php, apache e composer
 
-`docker run --rm --name phpcomposer -v ./:/var/www/html -p 8080:80 benvenuti/php-composer:1.0`
+`(local)$  docker run --rm --name phpcomposer -v ./:/var/www/html -p 8080:80 benvenuti/php-composer:1.0`
 
-Aprire il browser al seguente indirizzo:
-
+Aprire il browser al seguente indirizzo: 
 http://localhost:8080
 
 
@@ -13,9 +12,11 @@ http://localhost:8080
 
 1) In un altro terminale ottenere una bash nel container con il seguente comando:
 
-`docker exec -it phpcomposer bash`
+`(local)$ docker exec -it phpcomposer bash`
 
 
-2) Dentro il container, aggiornare le dipendenze di composer
+2) Dentro il container, installare/aggiornare le dipendenze di composer
 
-`composer update`
+`(docker)$ composer update`
+
+verranno così scaricate le dipendenze necessarie dentro la cartella `vendor`, già aggiunta al `.gitignore`
