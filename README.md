@@ -3,7 +3,7 @@
 `docker run --rm --name phpcomposer -v ./:/var/www/html -p 8080:80 benvenuti/php-composer:1.0`
 
 
-2) In un altro terminale ottenere una bash nel container ed eseguire il seguente comando:
+2) In un altro terminale ottenere una bash nel container con il seguente comando:
 
 `docker exec -it phpcomposer bash`
 
