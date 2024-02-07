@@ -8,9 +8,9 @@ Aprire il browser al seguente indirizzo:
 http://localhost:8080
 
 
-## Primo avvio (o quando vengono modificate le dipendenze)
+## Al primo avvio o quando vengono modificate le dipendenze
 
-1) In un altro terminale eseguire il seguente comando per eseguire 'composer update' dentro il container:
+In un altro terminale eseguire il seguente comando per eseguire 'composer update' dentro il container:
 
 `$ docker exec myPhp composer update`
 
