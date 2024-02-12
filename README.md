@@ -7,7 +7,7 @@ Dentro la cartella di progetto avviare il container Docker con php, apache e com
 Aprire il browser al seguente indirizzo: 
 http://localhost:8080
 
-# Per terminare il container docker
+## Per terminare il container docker
 
 `$ docker kill myPhp`
 
