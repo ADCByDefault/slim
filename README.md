@@ -9,6 +9,8 @@ http://localhost:8080
 
 ## Per terminare il container docker
 
+In un altro terminale eseguire il seguente comando:
+
 `$ docker kill myPhp`
 
 ## Al primo avvio o quando vengono modificate le dipendenze
