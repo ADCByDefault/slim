@@ -2,7 +2,7 @@
 
 Dentro la cartella di progetto avviare il container Docker con php, apache e composer
 
-`$ docker run --rm --name myPhp -v ./:/var/www/html -p 8080:80 benvenuti/php-composer:1.0`
+`docker run --rm --name myPhp -v ${PWD}:/var/www/html -p 8080:80 benvenuti/php-composer:1.1`
 
 Aprire il browser al seguente indirizzo: 
 http://localhost:8080
