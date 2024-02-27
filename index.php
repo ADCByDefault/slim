@@ -11,5 +11,9 @@ $app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write("Hello world!");
     return $response;
 });
-
+$app->get('/alunni', function (Request $request, Response $response, $args) {
+    
+    $response->getBody()->write($listaAlunni);
+    return $response;
+});
 $app->run();
