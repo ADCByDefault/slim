@@ -7,13 +7,13 @@ require __DIR__ . '/vendor/autoload.php';
 
 $app = AppFactory::create();
 
-$app->get('/', function (Request $request, Response $response, $args) {
-    $response->getBody()->write("Hello world!");
-    return $response;
-});
-$app->get('/alunni', function (Request $request, Response $response, $args) {
-    
-    $response->getBody()->write($listaAlunni);
-    return $response;
-});
+include "IndexController.php";
+include "src/ClasseController.php";
+
+
+
+$app->get('/', "IndexController:index");
+$app->get('/alunni',"ClasseController:index");
+$app->get("/alunni/{nome}","ClasseController:show");
+
 $app->run();
