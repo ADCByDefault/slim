@@ -7,13 +7,27 @@ require __DIR__ . '/vendor/autoload.php';
 
 $app = AppFactory::create();
 
-include "IndexController.php";
-include "src/ClasseController.php";
 
+function autoload($classname)
+{
+    $paths=['/','/src/','/controllers/'];
+    
+    foreach ($paths as $path) {
+        $filename = __DIR__ . $path . $classname . ".php";
+        if (file_exists($filename)) {
+            require_once $filename;
+            return;
+        }
+    }
+}
 
+spl_autoload_register("autoload");
 
 $app->get('/', "IndexController:index");
 $app->get('/alunni',"ClasseController:index");
 $app->get("/alunni/{nome}","ClasseController:show");
+
+$app->get('/api/alunni',"ClasseAPIController:index");
+$app->get("/api/alunni/{nome}","ClasseAPIController:show");
 
 $app->run();
