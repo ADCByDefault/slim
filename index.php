@@ -27,11 +27,15 @@ spl_autoload_register("autoload");
 $app->get('/', "ImpiantoController:index");
 $app->get('/impianto', "ImpiantoController:index");
 $app->get('/impianto/dispositivi', "ImpiantoController:dispositivi");
+$app->get('/impianto/dispositivi/{identificativo}', "ImpiantoController:dispositivo");
+
 
 $app->get('/impianto/rivelatori', "ImpiantoController:rivelatori");
+$app->get('/impianto/rivelatori/{identificativo}', "ImpiantoController:rivelatore");
+$app->get('/impianto/rivelatori/{identificativo}/misure', "ImpiantoController:misure");
+
 $app->get('/impianto/rivelatoriPressione', "ImpiantoController:rivelatoriPressione");
 $app->get('/impianto/rivelatoriUmidita', "ImpiantoController:rivelatoriUmidita");
-
 
 
 $app->run();

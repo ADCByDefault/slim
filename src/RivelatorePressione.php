@@ -10,6 +10,6 @@ class RivelatorePressione extends Rivelatore
     }
     public function jsonSerialize()
     {
-        return array_push(parent::jsonSerialize(), ["tipologia" => $this->tipologia]);
+        return array_merge(parent::jsonSerialize(), ["tipologia" => $this->tipologia]);
     }
 }

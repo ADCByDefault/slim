@@ -45,4 +45,33 @@ class ImpiantoController
         $response->getBody()->write($str);
         return $response->withHeader("Content-Type", "application/json");
     }
+    public function Dispositivo(Request $request, Response $response, $args)
+    {
+        $impianto = new Impianto("impianto sulla cisterna", 9001, 7002, [], []);
+        $impianto->popula();
+
+        $identificativo = intval($args["identificativo"]);
+        $str = json_encode($impianto->getDispositivo($identificativo));
+        $response->getBody()->write($str);
+        return $response->withHeader("Content-Type", "application/json");
+    }
+    public function Rivelatore(Request $request, Response $response, $args)
+    {
+        $impianto = new Impianto("impianto sulla cisterna", 9001, 7002, [], []);
+        $impianto->popula();
+
+        $identificativo = intval($args["identificativo"]);
+        $str = json_encode($impianto->getRivelatore($identificativo));
+        $response->getBody()->write($str);
+        return $response->withHeader("Content-Type", "application/json");
+    }
+    public function misure(Request $request, Response $response, $args)
+    {
+        $impianto = new Impianto("impianto sulla cisterna", 9001, 7002, [], []);
+        $impianto->popula();
+        $identificativo = intval($args["identificativo"]);
+        $str = json_encode($impianto->getMisure($identificativo));
+        $response->getBody()->write($str);
+        return $response->withHeader("Content-Type", "application/json");
+    }
 }

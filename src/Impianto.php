@@ -22,6 +22,35 @@ class Impianto implements JsonSerializable
             $this->rivelatori = $rivelatori;
         }
     }
+    public function getMisure($identificativo)
+    {
+        $r = $this->getRivelatore($identificativo);
+        if ($r == null) {
+            return null;
+        }
+        return $r->getMisure();
+    }
+    public function getRivelatore($identificativo)
+    {
+        $rr = null;
+        foreach ($this->rivelatori as $r) {
+            if ($r->getIdentificativo() == $identificativo) {
+                $rr = $r;
+            }
+        }
+
+        return $rr;
+    }
+    public function getDispositivo($identificativo)
+    {
+        $dr = null;
+        foreach ($this->dispositivi as $d) {
+            if ($d->getIdentificativo() == $identificativo) {
+                $dr = $d;
+            }
+        }
+        return $dr;
+    }
     public function getIdRivelatoriUmidita()
     {
         $t = [];

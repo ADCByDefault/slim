@@ -14,6 +14,10 @@ class Rivelatore implements JsonSerializable
         $this->sogliaAllarme = $sogliaAllarme;
         $this->codiceSeriale = $codiceSeriale;
     }
+    public function getMisure()
+    {
+        return $this->misurazioni;
+    }
     public function addMisura($data, $misura)
     {
         $this->misurazioni[] = [$data => $misura];

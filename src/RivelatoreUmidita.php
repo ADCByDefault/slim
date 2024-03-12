@@ -10,6 +10,6 @@ class RivelatoreUmidita extends Rivelatore
     }
     public function jsonSerialize()
     {
-        return array_push(parent::jsonSerialize(), ["posizione" => $this->posizione]);
+        return array_merge(parent::jsonSerialize(), ["posizione" => $this->posizione]);
     }
 }
