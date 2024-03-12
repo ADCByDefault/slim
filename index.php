@@ -1,4 +1,5 @@
 <?php
+
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
@@ -10,8 +11,8 @@ $app = AppFactory::create();
 
 function autoload($classname)
 {
-    $paths=['/','/src/','/controllers/'];
-    
+    $paths = ['/', '/src/', '/controllers/'];
+
     foreach ($paths as $path) {
         $filename = __DIR__ . $path . $classname . ".php";
         if (file_exists($filename)) {
@@ -23,11 +24,14 @@ function autoload($classname)
 
 spl_autoload_register("autoload");
 
-$app->get('/', "IndexController:index");
-$app->get('/alunni',"ClasseController:index");
-$app->get("/alunni/{nome}","ClasseController:show");
+$app->get('/', "ImpiantoController:index");
+$app->get('/impianto', "ImpiantoController:index");
+$app->get('/impianto/dispositivi', "ImpiantoController:dispositivi");
 
-$app->get('/api/alunni',"ClasseAPIController:index");
-$app->get("/api/alunni/{nome}","ClasseAPIController:show");
+$app->get('/alunni', "ClasseController:index");
+$app->get("/alunni/{nome}", "ClasseController:show");
+
+$app->get('/api/alunni', "ClasseAPIController:index");
+$app->get("/api/alunni/{nome}", "ClasseAPIController:show");
 
 $app->run();
