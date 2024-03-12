@@ -33,6 +33,7 @@ $app->get('/impianto/dispositivi/{identificativo}', "ImpiantoController:disposit
 $app->get('/impianto/rivelatori', "ImpiantoController:rivelatori");
 $app->get('/impianto/rivelatori/{identificativo}', "ImpiantoController:rivelatore");
 $app->get('/impianto/rivelatori/{identificativo}/misure', "ImpiantoController:misure");
+$app->get('/impianto/rivelatori/{identificativo}/misure/maggiori/{valore}', "ImpiantoController:misureMaggiori");
 
 $app->get('/impianto/rivelatoriPressione', "ImpiantoController:rivelatoriPressione");
 $app->get('/impianto/rivelatoriUmidita', "ImpiantoController:rivelatoriUmidita");

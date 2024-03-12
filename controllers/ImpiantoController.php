@@ -74,4 +74,22 @@ class ImpiantoController
         $response->getBody()->write($str);
         return $response->withHeader("Content-Type", "application/json");
     }
+    public function misureMaggiori(Request $request, Response $response, $args)
+    {
+        $impianto = new Impianto("impianto sulla cisterna", 9001, 7002, [], []);
+        $impianto->popula();
+        $identificativo = intval($args["identificativo"]);
+        $misure = $impianto->getMisure(($identificativo));
+        $mis = [];
+        $magg = intval($args["valore"]);
+
+        foreach ($misure as $d => $m) {
+            if ($m > $magg) {
+                $mis[] = [$d => $m];
+            }
+        }
+        $str = json_encode($mis);
+        $response->getBody()->write($str);
+        return $response->withHeader("Content-Type", "application/json");
+    }
 }
