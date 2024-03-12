@@ -28,10 +28,10 @@ $app->get('/', "ImpiantoController:index");
 $app->get('/impianto', "ImpiantoController:index");
 $app->get('/impianto/dispositivi', "ImpiantoController:dispositivi");
 
-$app->get('/alunni', "ClasseController:index");
-$app->get("/alunni/{nome}", "ClasseController:show");
+$app->get('/impianto/rivelatori', "ImpiantoController:rivelatori");
+$app->get('/impianto/rivelatoriPressione', "ImpiantoController:rivelatoriPressione");
+$app->get('/impianto/rivelatoriUmidita', "ImpiantoController:rivelatoriUmidita");
 
-$app->get('/api/alunni', "ClasseAPIController:index");
-$app->get("/api/alunni/{nome}", "ClasseAPIController:show");
+
 
 $app->run();

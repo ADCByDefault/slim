@@ -1,6 +1,6 @@
 <?php
 include_once "Rivelatore.php";
-class RivelatorePressioone extends Rivelatore
+class RivelatorePressione extends Rivelatore
 {
     protected $tipologia;
     public function __construct($identificativo, $sogliaAllarme, $codiceSeriale, $tipologia)

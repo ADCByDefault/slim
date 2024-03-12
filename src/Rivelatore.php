@@ -28,4 +28,8 @@ class Rivelatore implements JsonSerializable
             "codiceSeriale" => $this->codiceSeriale,
         ];
     }
+    public function getIdentificativo()
+    {
+        return $this->identificativo;
+    }
 }

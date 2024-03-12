@@ -22,9 +22,41 @@ class Impianto implements JsonSerializable
             $this->rivelatori = $rivelatori;
         }
     }
-
+    public function getIdRivelatoriUmidita()
+    {
+        $t = [];
+        foreach ($this->rivelatori as $r) {
+            if ($r instanceof RivelatoreUmidita) {
+                $t[] = $r->getIdentificativo();
+            }
+        }
+        return $t;
+    }
+    public function getIdRivelatoriPressione()
+    {
+        $t = [];
+        foreach ($this->rivelatori as $r) {
+            if ($r instanceof RivelatorePressione) {
+                $t[] = $r->getIdentificativo();
+            }
+        }
+        return $t;
+    }
     public function getIdDispositivi()
     {
+        $t = [];
+        foreach ($this->dispositivi as $d) {
+            $t[] = $d->getIdentificativo();
+        }
+        return $t;
+    }
+    public function getIdRivelatori()
+    {
+        $t = [];
+        foreach ($this->rivelatori as $r) {
+            $t[] = $r->getIdentificativo();
+        }
+        return $t;
     }
 
     public function getDispositivi()
@@ -83,6 +115,20 @@ class Impianto implements JsonSerializable
         $r->addMisura("02/03/2024", 65);
         $r->addMisura("03/03/2024", 41);
         $r->addMisura("04/03/2024", 37);
+        array_push($this->rivelatori, $r);
+
+        $r = new RivelatorePressione(4, 70, 00003, "aria");
+        $r->addMisura("01/03/2024", 1.2);
+        $r->addMisura("02/03/2024", 1.1);
+        $r->addMisura("03/03/2024", 1.2);
+        $r->addMisura("04/03/2024", 1.3);
+        array_push($this->rivelatori, $r);
+
+        $r = new RivelatorePressione(5, 70, 00003, "aria");
+        $r->addMisura("01/03/2024", 1.4);
+        $r->addMisura("02/03/2024", 1.5);
+        $r->addMisura("03/03/2024", 1.5);
+        $r->addMisura("04/03/2024", 1.45);
         array_push($this->rivelatori, $r);
     }
 }
